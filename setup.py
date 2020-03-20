@@ -8,7 +8,7 @@ from setuptools import setup
 
 name = 'djangorestframework-jsonmask'
 package = 'rest_framework_jsonmask'
-description = 'Implements Google\'s partial response in Django RestFramework'
+description = 'Implements Google\'s partial response in Django RestFramework (Fork from Zapier\'s package and upgrade version)'
 url = 'https://github.com/thongnguyenhuu/django-rest-framework-jsonmask'
 author = 'Thong Nguyen'
 author_email = 'nguyenthonght@gmail.com'
