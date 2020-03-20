@@ -9,9 +9,9 @@ from setuptools import setup
 name = 'djangorestframework-jsonmask'
 package = 'rest_framework_jsonmask'
 description = 'Implements Google\'s partial response in Django RestFramework'
-url = 'https://github.com/zapier/django-rest-framework-jsonmask'
-author = 'Craig Labenz'
-author_email = 'craig.labenz@zapier.com'
+url = 'https://github.com/thongnguyenhuu/django-rest-framework-jsonmask'
+author = 'Thong Nguyen'
+author_email = 'nguyenthonght@gmail.com'
 license = 'BSD'
 
 
@@ -85,27 +85,23 @@ setup(
     packages=get_packages(package),
     package_data=get_package_data(package),
     install_requires=[
+        'isort',
         'jsonmask',
-        'Django>=1.11',
-        'djangorestframework>=3.5',
+        'Django>=3.0',
+        'djangorestframework>=3.11',
+        'six',
+        'factory-boy'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 1.11',
-        'Framework :: Django :: 2.0',
-        'Framework :: Django :: 2.1',
+        'Framework :: Django :: 3.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]

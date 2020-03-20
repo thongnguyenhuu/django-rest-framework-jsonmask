@@ -2,7 +2,6 @@
 
 from __future__ import unicode_literals
 
-import factory
 import factory.fuzzy
 from django.conf import settings
 from django.utils import timezone

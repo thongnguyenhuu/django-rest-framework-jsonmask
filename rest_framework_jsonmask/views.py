@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
+import six
 from django.conf import settings
-from django.utils import six
 from django.utils.functional import cached_property
 from jsonmask import parse_fields, should_include_variable
 from rest_framework import exceptions

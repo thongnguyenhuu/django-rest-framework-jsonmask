@@ -17,9 +17,6 @@ class FieldsListSerializerMixin(object):
         requested_fields = self._context.get('requested_fields') or {}
         excluded_fields = self._context.get('excluded_fields') or {}
 
-        if not requested_fields and not excluded_fields:
-            return readable_fields
-
         structure, is_negated = collapse_includes_excludes(
             requested_fields, excluded_fields,
         )
