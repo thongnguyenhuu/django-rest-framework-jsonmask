@@ -22,6 +22,7 @@ bin/
 include/
 lib/
 local/
+.idea/
 
 !.gitignore
 !.travis.yml
