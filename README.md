@@ -4,6 +4,7 @@
 
 ## Overview
 
+Forked from https://github.com/zapier/django-rest-framework-jsonmask
 Implements Google's Partial Response in Django RestFramework
 
 ## Requirements
