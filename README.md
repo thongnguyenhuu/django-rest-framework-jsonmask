@@ -1,10 +1,10 @@
-[![Build Status](https://api.travis-ci.com/zapier/django-rest-framework-jsonmask.svg?branch=master)](https://travis-ci.org/zapier/django-rest-framework-jsonmask) [![Coverage Status](https://img.shields.io/coveralls/zapier/django-rest-framework-jsonmask/master.svg)](https://coveralls.io/r/zapier/django-rest-framework-jsonmask) [![PyPI Version](https://img.shields.io/pypi/v/djangorestframework-jsonmask.svg)](https://pypi.org/project/django-rest-framework-jsonmask)
 
 ---
 
 ## Overview
 
 Forked from https://github.com/zapier/django-rest-framework-jsonmask
+
 Implements Google's Partial Response in Django RestFramework
 
 ## Requirements
@@ -18,20 +18,20 @@ Implements Google's Partial Response in Django RestFramework
 Install using `pip`...
 
 ```bash
-$ pip install djangorestframework-jsonmask
+$ pip install drf-partial-response
 ```
 
 ## Example
 
 Most DRF addons that support `?fields=`-style data pruning do so purely at the serializaton layer. Many hydrate full ORM objects, including all of their verbose relationships, and then cut unwanted data immediately before JSON serialization. Any unwanted related data is still fetched from the database and hydrated into Django ORM objects, which severely undermines the usefulness of field pruning.
 
-`rest_framework_jsonmask` aims to do one better by allowing developers to declaratively augment their queryset in direct relation to individual requests. Under this pattern, you only declare the base queryset and any universal relationships on your ViewSet.queryset, leaving all additional enhancements as runtime opt-ins.
+`drf_partial_response` aims to do one better by allowing developers to declaratively augment their queryset in direct relation to individual requests. Under this pattern, you only declare the base queryset and any universal relationships on your ViewSet.queryset, leaving all additional enhancements as runtime opt-ins.
 
-To use `rest_framework_jsonmask`, first include its ViewSet and Serializer mixins in your code where appropriate. The following examples are taken from the mini-project used in this library's own unit tests.
+To use `drf_partial_response`, first include its ViewSet and Serializer mixins in your code where appropriate. The following examples are taken from the mini-project used in this library's own unit tests.
 
 ```py
 # api/views.py
-from rest_framework_jsonmask.views import OptimizedQuerySetMixin
+from drf_partial_response.views import OptimizedQuerySetMixin
 
 class TicketViewSet(OptimizedQuerySetMixin, viewsets.ReadOnlyModelViewSet):
 
@@ -49,7 +49,7 @@ class TicketViewSet(OptimizedQuerySetMixin, viewsets.ReadOnlyModelViewSet):
 
 
 # api/serializers.py
-from rest_framework_jsonmask.serializers import FieldsListSerializerMixin
+from drf_partial_response.serializers import FieldsListSerializerMixin
 
 class TicketSerializer(FieldsListSerializerMixin, serializers.ModelSerializer):
     # Aside from the mixin, everything else is exactly like normal
@@ -82,7 +82,7 @@ GET /api/tickets/
 
 Because no `?fields` querystring parameter was provided, author records were still loaded and serialized like normal.
 
-> Note: `rest_framework_jsonmask` treats all requests that lack any field definition as if all possible data is requested, and thus executes all data predicates. In the above example, `author` data was loaded via `selected_related('author')`, and _not_ N+1 queries.
+> Note: `drf_partial_response` treats all requests that lack any field definition as if all possible data is requested, and thus executes all data predicates. In the above example, `author` data was loaded via `selected_related('author')`, and _not_ N+1 queries.
 
 ---
 
@@ -124,7 +124,7 @@ In this example, `author` data was loaded via the `?fields` declaration, but no 
 
 #### Nested Relationships
 
-This is all good and fun, but what if `author` has rarely used but expensive relationships, too? `rest_framework_jsonmask` supports this, via the exact same mechanisms spelled out above, though sometimes a little extra attention to detail can be important. Let's now imagine that `AuthorSerializer` looks like this:
+This is all good and fun, but what if `author` has rarely used but expensive relationships, too? `drf_partial_response` supports this, via the exact same mechanisms spelled out above, though sometimes a little extra attention to detail can be important. Let's now imagine that `AuthorSerializer` looks like this:
 
 ```py
 class AuthorSerializer(FieldsListSerializerMixin, serializers.ModelSerializer):
