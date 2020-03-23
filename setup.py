@@ -10,7 +10,7 @@ name = 'drf-partial-response'
 package = 'drf_partial_response'
 description = 'Implements Google\'s partial response in Django RestFramework' \
               ' (Fork from Zapier\'s package and upgrade version)'
-url = 'https://github.com/thongnguyenhuu/django-rest-framework-jsonmask'
+url = 'https://github.com/thongnguyenhuu/drf-partial-response'
 author = 'Thong Nguyen'
 author_email = 'nguyenthonght@gmail.com'
 license = 'BSD'
