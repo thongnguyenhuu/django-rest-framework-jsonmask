@@ -26,3 +26,5 @@ local/
 
 !.gitignore
 !.travis.yml
+
+.python-version
