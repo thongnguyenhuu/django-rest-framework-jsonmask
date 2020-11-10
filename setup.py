@@ -86,12 +86,10 @@ setup(
     packages=get_packages(package),
     package_data=get_package_data(package),
     install_requires=[
-        'isort',
         'jsonmask',
         'Django>=1.11',
         'djangorestframework>=3.5',
         'six',
-        'factory-boy'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
